@@ -15,8 +15,7 @@ let menuItems = [
 
   <div class="menu">
     <ul>
-      {each menu item as a list item}
-    </ul>
+      {each menu item as a list item
   </div>
 
 
@@ -35,34 +34,31 @@ let menuItems = [
 */
 
 const theActualMenu = document.querySelector('.header')
+const menuButton = document.querySelector('.menu-button')
 
-function menuMaker(menuDataObj){
+function menuMaker(menuArray){
 
   const menu = document.createElement('div')
   const theWholeList = document.createElement('ul')
-  const students = document.createElement('li')
-  const faculty = document.createElement('li')
-  const news = document.createElement('li')
-  const trends = document.createElement('li')
-  const music = document.createElement('li')
-  const logOut = document.createElement('li')
-
-  menu.appendChild(theWholeList)
-  theWholeList.appendChild(students)
-  theWholeList.appendChild(faculty)
-  theWholeList.appendChild(news)
-  theWholeList.appendChild(trends)
-  theWholeList.appendChild(music)
-  theWholeList.appendChild(logOut)
 
   menu.className = 'menu'
 
-  students.textContent = menuDataObj[0]
-  faculty.textContent = menuDataObj[1]
-  news.textContent = menuDataObj[2]
-  trends.textContent = menuDataObj[3]
-  music.textContent = menuDataObj[4]
-  logOut.textContent = menuDataObj[5]
+  menu.appendChild(theWholeList)
+
+  menuArray.forEach(list => {
+    let giveMenuText = document.createElement('li')
+    giveMenuText.textContent = list
+    theWholeList.appendChild(giveMenuText)
+  })
 
   
+
+  menuButton.addEventListener('click',() => {
+    menu.classList.toggle('menu--open')
+  })
+
+  return menu
 }
+
+theActualMenu.appendChild(menuMaker(menuItems))
+
