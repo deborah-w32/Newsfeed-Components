@@ -9,6 +9,7 @@ let menuItems = [
   'Log Out'
 ];
 
+
 /* 
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
@@ -17,6 +18,7 @@ let menuItems = [
       {each menu item as a list item}
     </ul>
   </div>
+
 
   The 'menuMaker' takes an array as its only argument.
 
@@ -31,3 +33,36 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+
+const theActualMenu = document.querySelector('.header')
+
+function menuMaker(menuDataObj){
+
+  const menu = document.createElement('div')
+  const theWholeList = document.createElement('ul')
+  const students = document.createElement('li')
+  const faculty = document.createElement('li')
+  const news = document.createElement('li')
+  const trends = document.createElement('li')
+  const music = document.createElement('li')
+  const logOut = document.createElement('li')
+
+  menu.appendChild(theWholeList)
+  theWholeList.appendChild(students)
+  theWholeList.appendChild(faculty)
+  theWholeList.appendChild(news)
+  theWholeList.appendChild(trends)
+  theWholeList.appendChild(music)
+  theWholeList.appendChild(logOut)
+
+  menu.className = 'menu'
+
+  students.textContent = menuDataObj[0]
+  faculty.textContent = menuDataObj[1]
+  news.textContent = menuDataObj[2]
+  trends.textContent = menuDataObj[3]
+  music.textContent = menuDataObj[4]
+  logOut.textContent = menuDataObj[5]
+
+  
+}
