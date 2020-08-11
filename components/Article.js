@@ -145,6 +145,7 @@ function articleMaker(articleDataObj){
     article.classList.toggle('article-open')
   })
 
+
   return article
 }
 
